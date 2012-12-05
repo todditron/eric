@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Eric::VERSION
   s.authors     = ["Taavo Smith"]
   s.email       = ["taavo@dd9.com"]
-  s.homepage    = "http://github.com/taavo/eric"
+  s.homepage    = "http://github.com/dd9/eric"
   s.summary     = "Half of a CMS. The front half."
   s.description = "A CMS for sites which already have a back-end and don't want another. Pages, posts, and blocks."
 
