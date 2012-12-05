@@ -1,0 +1,3 @@
+module Eric
+  VERSION = "0.0.1"
+end
