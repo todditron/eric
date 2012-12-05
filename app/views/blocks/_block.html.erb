@@ -1,0 +1,8 @@
+<%= div_for block do %>
+  <% if block.title.present? %>
+    <h3><%= block.title %></h3>
+  <% end %>
+  <% if block.body.present? %>
+    <%= simple_format block.body %>
+  <% end %>
+<% end %>

@@ -12,7 +12,10 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
 
+  # Manually require testing gems because they don't know how to inject themselves into an engine
+  # see: http://stefanwienert.net/blog/2012/02/15/rails-mountable-engine-useful-starting-point-with-rspec-factory-girl-and-friends/
   require 'shoulda/matchers/integrations/rspec'
+  require 'factory_girl_rails'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -45,6 +48,8 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+
+    config.include FactoryGirl::Syntax::Methods
   end
 end
 
