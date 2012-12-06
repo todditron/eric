@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205165902) do
+ActiveRecord::Schema.define(:version => 20121206140639) do
 
   create_table "blocks", :force => true do |t|
     t.string   "name",                       :null => false
@@ -22,6 +22,20 @@ ActiveRecord::Schema.define(:version => 20121205165902) do
   end
 
   add_index "blocks", ["name"], :name => "index_blocks_on_name", :unique => true
+
+  create_table "pages", :force => true do |t|
+    t.string   "slug",                       :null => false
+    t.string   "title",      :default => "", :null => false
+    t.text     "body",       :default => "", :null => false
+    t.string   "ancestry"
+    t.integer  "order",                      :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
+  add_index "pages", ["order"], :name => "index_pages_on_order"
+  add_index "pages", ["slug"], :name => "index_pages_on_slug"
 
   create_table "posts", :force => true do |t|
     t.date     "date",                       :null => false
