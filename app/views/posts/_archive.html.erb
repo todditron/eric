@@ -1,0 +1,23 @@
+<% if archive.any? %>
+  <ul class='post-archive'>
+    <li>
+      <h3><%= archive.first.date.strftime("%B %Y") %></h3>
+      <ul>
+        <% previous_post = archive.first %>
+        <% archive.each do |post| %>
+          <% if post.date.year != previous_post.date.year || post.date.month != previous_post.date.month %>
+      </ul>
+    </li>
+    <li>
+      <h3><%= post.date.strftime("%B %Y") %></h3>
+      <ul>
+          <% end %>
+          <li>
+            <%= link_to post.title, post %>
+          </li>
+          <% previous_post = post %>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
+<% end %>
