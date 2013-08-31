@@ -7,6 +7,7 @@ class CreatePages < ActiveRecord::Migration
       t.text :body, null: false, default: ''
       t.string :ancestry
       t.integer :order, null: false
+      t.string :meta_description, null: false, default: ''
 
       t.timestamps
     end

@@ -5,11 +5,12 @@ feature 'Pages' do
     it "shows existing pages" do
       about = Page.new(title: 'About')
       about.save
-      contact = Page.new(title: 'Contact Us', body: "<h2 class='head'>Hello</h2>", parent: about)
+      contact = Page.new(title: 'Contact Us', body: "<h2 class='head'>Hello</h2>", parent: about, meta_description: 'Description goes here')
       contact.save
 
       visit '/about/contact-us'
-      page.should have_selector 'h2.head'
+      page.should have_css 'h2.head'
+      page.should have_css "meta[name='description'][content='Description goes here']", visible: false
     end
 
     it "returns 404s when page isn't found" do

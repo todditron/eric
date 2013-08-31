@@ -3,7 +3,7 @@ class Page < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: [:slugged, :scoped], scope: :ancestry
 
-  attr_accessible :parent_id, :parent, :body, :order, :slug, :title,
+  attr_accessible :parent_id, :parent, :body, :order, :slug, :title, :meta_description,
     as: [:default, :admin]
 
   validates :title, presence: true

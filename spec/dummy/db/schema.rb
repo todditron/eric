@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121206140639) do
+ActiveRecord::Schema.define(:version => 20130831151403) do
 
   create_table "blocks", :force => true do |t|
     t.string   "name",                       :null => false
@@ -24,13 +24,14 @@ ActiveRecord::Schema.define(:version => 20121206140639) do
   add_index "blocks", ["name"], :name => "index_blocks_on_name", :unique => true
 
   create_table "pages", :force => true do |t|
-    t.string   "slug",                       :null => false
-    t.string   "title",      :default => "", :null => false
-    t.text     "body",       :default => "", :null => false
+    t.string   "slug",                             :null => false
+    t.string   "title",            :default => "", :null => false
+    t.text     "body",             :default => "", :null => false
     t.string   "ancestry"
-    t.integer  "order",                      :null => false
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "order",                            :null => false
+    t.string   "meta_description", :default => "", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "pages", ["ancestry"], :name => "index_pages_on_ancestry"
