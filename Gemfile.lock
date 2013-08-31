@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    eric (0.0.2)
+    eric (0.0.3)
       ancestry
       friendly_id
       rails (~> 3.2.9)
